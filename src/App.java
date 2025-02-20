@@ -58,6 +58,8 @@ public class App {
         Scanner bot = new Scanner(System.in);
         boolean v = true;
 
+        // reduzir número de opções (ver abaixo)
+
         while (v) {
             System.out.println("Digite 0 para sair do programa");
             System.out.println("Digite 1 para adicionar um novo Segurança");
@@ -89,6 +91,8 @@ public class App {
             int escolha = bot.nextInt();
             bot.nextLine();
 
+            // em vez de fazer um case para criar cada tipo de funcionário, é melhor fazer só um case para criação e remoção e separar lá *
+
             switch (escolha) {
                 case 0:
                     v = false;
@@ -102,10 +106,16 @@ public class App {
                     System.out.println("Digite o salário do funcionário: ");
                     int salario = bot.nextInt();
                     System.out.println("Digite a carga horária deste funcionário: ");
+
+                    // no lugar de nextInt seguido de nextLine, pode-se colocar Integer.parseInt(bot.nextLine)
+
                     int carga = bot.nextInt();
                     bot.nextLine();
                     System.out.println("Digite o gênero deste funcionário: ");
                     String genero = bot.nextLine();
+
+                    // * aqui pode ser pedida a função do funcionário e feito um switch para adicionar os atributos únicos do funcionário
+
                     System.out.println("Digite o setor em que ele está trabalhando: ");
                     int setor = bot.nextInt();
                     System.out.println("Digite o nível de risco deste setor: ");
@@ -238,7 +248,10 @@ public class App {
                     Lista.add(novoEstoq);
                     System.out.println("Estoquista adicionado com sucesso!");
                     break;
-                case 9: 
+                case 9:
+
+                    // não é preciso fazer um case separado para cada tipo de funcionário para remoção, já que a remoção usa um atributo da classe Funcionario
+
                     System.out.println("Digite o nome do segurança que você pretende remover: ");
                     String deletarSeg = bot.nextLine();
                     boolean removido = false;
@@ -430,9 +443,15 @@ public class App {
             }
         }
         default:
+        
+        // seria melhor colocar o default no fim do switch
+
         System.out.println("Opção inválida.");
         break;
-    case 22: 
+    case 22:
+
+        // colocar o funcionários abaixo junto aos outros
+
         System.out.println("Digite o nome do novo funcário da manutenção: ");
         String nomeMan = bot.nextLine();
         System.out.println("Digite a idade do novo funcionário: ");
